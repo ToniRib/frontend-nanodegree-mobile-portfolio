@@ -1,8 +1,12 @@
 // ngrok & pagespeed insights capability per James Cryer
 // http://www.jamescryer.com/2014/06/12/grunt-pagespeed-and-ngrok-locally-testing/
 
+var ngrok = require('ngrok');
+
 module.exports = function(grunt) {
 
+    // Load grunt tasks
+    require('load-grunt-tasks')(grunt);
 
     // 1. All configuration goes here
     grunt.initConfig({
@@ -25,18 +29,49 @@ module.exports = function(grunt) {
                     dest: 'img/build/'
                 }]
             }
-        }
+        },
 
         // Add task to use pagespeed insights
+        pagespeed: {
+            options: {
+                nokey: true,
+                locale: "en_GB",
+                threshold: 90
+            },
+            local: {
+                options: {
+                    strategy: "desktop"
+                }
+            },
+            mobile: {
+                options: {
+                  strategy: "mobile"
+                }
+            }
+        }
+    });
 
+    // Register customer task for ngrok
+    grunt.registerTask('psi-ngrok', 'Run pagespeed with ngrok', function() {
+        var done = this.async();
+        var port = 8080;
+
+        ngrok.connect(port, function(err, url) {
+            if (err !== null) {
+                grunt.fail.fatal(err);
+                return done();
+            }
+            grunt.config.set('pagespeed.options.url', url);
+            grunt.task.run('pagespeed');
+            done();
+        });
     });
 
     // 3. Where we tell Grunt we plan to use this plug-in.
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
-    grunt.loadNpmTasks('grunt-pagespeed');
 
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
-    grunt.registerTask('default', ['uglify', 'imagemin']);
+    grunt.registerTask('default', ['uglify', 'imagemin', 'psi-ngrok']);
 
 };
