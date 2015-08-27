@@ -36,18 +36,6 @@ module.exports = function(grunt) {
             }
         },
 
-        // compress: {
-        //     main: {
-        //         options: {
-        //             mode: 'gzip'
-        //         },
-        //         expand: true,
-        //         cwd: 'css/',
-        //         src: ['**/*'],
-        //         dest: 'css/zip/'
-        //     }
-        // },
-
         // Optimize the images in the img/ folder
         imagemin: {
             dynamic: {
@@ -119,8 +107,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
-    // grunt.loadNpmTasks('grunt-contrib-compress');
-
 
     // Register the tasks as default actions for the 'grunt' command
     grunt.registerTask('default', ['clean', 'uglify', 'cssmin', 'imagemin', 'inlinecss', 'psi-ngrok']);
