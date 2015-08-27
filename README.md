@@ -30,9 +30,22 @@ Some useful tips to help you get started:
 
 Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
 
+##### Optimizations Added by Toni
+
+* Created a Gruntfile.js to optimize images, minify the files, and use ngrok and pagespeed to measure performance
+* Changed the HTML link attribute to include a media="print" attribute for the print.css stylesheet in .html files
+* Changed the call to img/profilepic.jpg to be img/build/profilepic.jpg in index.html
+* Minified css files
+
+###### Non-index.html Optimizations
+* Added async tag to <script async src="js/perfmatters.js"></script> in project-2048.html
+* Changed <img class="img-responsive" src="img/build/2048.png"> to call local file in project-2048.html
+* Updated images to /build in the other two .html files
+
+
 ####Part 2: Optimize Frames per Second in pizza.html
 
-To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js. 
+To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js.
 
 You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
 
