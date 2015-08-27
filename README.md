@@ -36,6 +36,8 @@ Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
 * Changed the HTML link attribute to include a media="print" attribute for the print.css stylesheet in .html files
 * Changed the call to img/profilepic.jpg to be img/build/profilepic.jpg in index.html
 * Minified css files
+* Moved the Google fonts to be non-render blocking by asynchronously loading it at the bottom of the file.
+* Used imagemagick to resize the pizzeria.jpg image since Grunt keeps having an error with this image
 
 ###### Non-index.html Optimizations
 * Added async tag to <script async src="js/perfmatters.js"></script> in project-2048.html

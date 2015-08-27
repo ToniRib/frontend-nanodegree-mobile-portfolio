@@ -36,6 +36,18 @@ module.exports = function(grunt) {
             }
         },
 
+        // compress: {
+        //     main: {
+        //         options: {
+        //             mode: 'gzip'
+        //         },
+        //         expand: true,
+        //         cwd: 'css/',
+        //         src: ['**/*'],
+        //         dest: 'css/zip/'
+        //     }
+        // },
+
         // Optimize the images in the img/ folder
         imagemin: {
             dynamic: {
@@ -46,11 +58,16 @@ module.exports = function(grunt) {
                     dest: 'img/build/'
                 }]
             },
-            // static: {
-            //     files: {
-            //         'dest/pizzeria.jpg': 'views/images/pizzeria.jpg'
-            //     }
-            // }
+        },
+
+        // Inline the CSS into the index.html file
+        inlinecss: {
+            main: {
+                options: {},
+                files: {
+                    'index_production.html': 'index.html'
+                }
+            }
         },
 
         // Run a clean up function so images don't get recursively optimized
@@ -98,13 +115,14 @@ module.exports = function(grunt) {
 
     // Tell grunt to use the plugins
     grunt.loadNpmTasks('grunt-contrib-clean');
-    // grunt.loadNpmTasks('grunt-newer');
+    grunt.loadNpmTasks('grunt-inline-css');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    // grunt.loadNpmTasks('grunt-contrib-compress');
 
 
     // Register the tasks as default actions for the 'grunt' command
-    grunt.registerTask('default', ['clean', 'uglify', 'cssmin', 'imagemin', 'psi-ngrok']);
+    grunt.registerTask('default', ['clean', 'uglify', 'cssmin', 'imagemin', 'inlinecss', 'psi-ngrok']);
 
 };
