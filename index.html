@@ -7,8 +7,6 @@
     <meta name="author" content="Udacity/Toni Rib">
     <title>Cameron Pittman: Portfolio</title>
 
-    <!-- Hmm, what is the impact of web fonts on speed? Measure it... -->
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
     <link href="css/style.min.css" rel="stylesheet">
     <link href="css/print.min.css" rel="stylesheet" media="print">
 
@@ -20,7 +18,7 @@
       ga('create', 'UA-XXXX-Y');
       ga('send', 'pageview');
     </script>
-    <script src="http://www.google-analytics.com/analytics.js"></script>
+    <script async src="http://www.google-analytics.com/analytics.js"></script>
     <script async src="js/perfmatters.min.js"></script>
   </head>
 
@@ -62,6 +60,21 @@
           </li>
         </ul>
     </div>
+
+    <!-- asynchronously load the web font using webfontloader -->
+    <script>
+       WebFontConfig = {
+          google: {
+            families: ['Open Sans:400,700']
+          }
+       };
+
+       (function(d) {
+          var wf = d.createElement('script'), s = d.scripts[0];
+          wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js';
+          s.parentNode.insertBefore(wf, s);
+       })(document);
+    </script>
 
     <footer>
       <p>&copy; Web Performance 2014 <span id="crp-stats"></span></p>
