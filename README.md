@@ -1,36 +1,10 @@
 ## Website Performance Optimization portfolio project
 
-Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
+For the Udacity Front End Web Developer Nanodegree project 4, Udacity provided an online portfolio with specific bugs that needed to be optimized. In particular, the goal was to optimize the critical rendering path to make the main page render as quickly as possible by applying the techniques picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
 
-To get started, check out the repository, inspect the code,
+###Part 1: Optimize PageSpeed Insights score for index.html
 
-### Getting started
-
-####Part 1: Optimize PageSpeed Insights score for index.html
-
-Some useful tips to help you get started:
-
-1. Check out the repository
-1. To inspect the site on your phone, you can run a local server
-
-  ```bash
-  $> cd /path/to/your-project-folder
-  $> python -m SimpleHTTPServer 8080
-  ```
-
-1. Open a browser and visit localhost:8080
-1. Download and install [ngrok](https://ngrok.com/) to make your local server accessible remotely.
-
-  ``` bash
-  $> cd /path/to/your-project-folder
-  $> ngrok 8080
-  ```
-
-1. Copy the public URL ngrok gives you and try running it through PageSpeed Insights! Optional: [More on integrating ngrok, Grunt and PageSpeed.](http://www.jamescryer.com/2014/06/12/grunt-pagespeed-and-ngrok-locally-testing/)
-
-Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
-
-##### Optimizations Added by Toni
+The following optimizations were provided by Toni Rib:
 
 * Created a Gruntfile.js to optimize images, minify the files, and use ngrok and pagespeed to measure performance
 * Changed the HTML link attribute to include a media="print" attribute for the print.css stylesheet in .html files
@@ -38,50 +12,14 @@ Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
 * Minified css files
 * Moved the Google fonts to be non-render blocking by asynchronously loading it at the bottom of the file.
 * Used imagemagick to resize the pizzeria.jpg image since Grunt keeps having an error with this image
+* Updated 'querySelectorAll' to 'getElementsByClassName' which is faster.
 
-####Part 2: Optimize Frames per Second in pizza.html
+###Part 2: Optimize Frames per Second in pizza.html
 
-To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js.
+The goal of this section was to optimize views/pizza.html, by modifying views/js/main.js until the frames per second rate is 60 fps or higher when scrolling. In addition, the slider than changes the pizza's sizes needed to be optimized so that pizzas changed sizes in under 5ms.
 
-You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
-
-##### Optimizations Added by Toni (main.js file)
+The following optimizations were provided by Toni Rib:
 
 * In the changePizzaSizes function (line 450) I moved repeated variables outside of the for loop. In addition, I updated 'querySelectorAll' to 'getElementsByClassName' which is faster.
 * In the updatePositions function (line 509) I moved 'document.body.scrollTop' outside of the for loop.
-
-### Optimization Tips and Tricks
-* [Optimizing Performance](https://developers.google.com/web/fundamentals/performance/ "web performance")
-* [Analyzing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp.html "analyzing crp")
-* [Optimizing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/optimizing-critical-rendering-path.html "optimize the crp!")
-* [Avoiding Rendering Blocking CSS](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-blocking-css.html "render blocking css")
-* [Optimizing JavaScript](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/adding-interactivity-with-javascript.html "javascript")
-* [Measuring with Navigation Timing](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/measure-crp.html "nav timing api"). We didn't cover the Navigation Timing API in the first two lessons but it's an incredibly useful tool for automated page profiling. I highly recommend reading.
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/eliminate-downloads.html">The fewer the downloads, the better</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/optimize-encoding-and-transfer.html">Reduce the size of text</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization.html">Optimize images</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching.html">HTTP caching</a>
-
-### Customization with Bootstrap
-The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstrap</a> framework. All custom styles are in `dist/css/portfolio.css` in the portfolio repo.
-
-* <a href="http://getbootstrap.com/css/">Bootstrap's CSS Classes</a>
-* <a href="http://getbootstrap.com/components/">Bootstrap's Components</a>
-
-### Sample Portfolios
-
-Feeling uninspired by the portfolio? Here's a list of cool portfolios I found after a few minutes of Googling.
-
-* <a href="http://www.reddit.com/r/webdev/comments/280qkr/would_anybody_like_to_post_their_portfolio_site/">A great discussion about portfolios on reddit</a>
-* <a href="http://ianlunn.co.uk/">http://ianlunn.co.uk/</a>
-* <a href="http://www.adhamdannaway.com/portfolio">http://www.adhamdannaway.com/portfolio</a>
-* <a href="http://www.timboelaars.nl/">http://www.timboelaars.nl/</a>
-* <a href="http://futoryan.prosite.com/">http://futoryan.prosite.com/</a>
-* <a href="http://playonpixels.prosite.com/21591/projects">http://playonpixels.prosite.com/21591/projects</a>
-* <a href="http://colintrenter.prosite.com/">http://colintrenter.prosite.com/</a>
-* <a href="http://calebmorris.prosite.com/">http://calebmorris.prosite.com/</a>
-* <a href="http://www.cullywright.com/">http://www.cullywright.com/</a>
-* <a href="http://yourjustlucky.com/">http://yourjustlucky.com/</a>
-* <a href="http://nicoledominguez.com/portfolio/">http://nicoledominguez.com/portfolio/</a>
-* <a href="http://www.roxannecook.com/">http://www.roxannecook.com/</a>
-* <a href="http://www.84colors.com/portfolio.html">http://www.84colors.com/portfolio.html</a>
+* Used the screen size (line 537) to calculate the number of background pizzas to create instead of using the static # of 200.
