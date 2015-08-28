@@ -536,10 +536,10 @@ window.addEventListener('scroll', updatePositions);
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
   var s = 256;
+  // OPTIMIZATION: calculate cols & rows based on screen size and use
+  // this to calculate the total number of background pizzas.
   var cols = screen.width / s;
   var rows = screen.height / 100;
-  console.log('cols: ' + cols);
-  console.log('rows: ' + rows);
   for (var i = 0; i < cols * rows; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
