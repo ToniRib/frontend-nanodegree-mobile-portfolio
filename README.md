@@ -39,17 +39,16 @@ Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
 * Moved the Google fonts to be non-render blocking by asynchronously loading it at the bottom of the file.
 * Used imagemagick to resize the pizzeria.jpg image since Grunt keeps having an error with this image
 
-###### Non-index.html Optimizations
-* Added async tag to <script async src="js/perfmatters.js"></script> in project-2048.html
-* Changed <img class="img-responsive" src="img/build/2048.png"> to call local file in project-2048.html
-* Updated images to /build in the other two .html files
-
-
 ####Part 2: Optimize Frames per Second in pizza.html
 
 To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js.
 
 You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
+
+##### Optimizations Added by Toni (main.js file)
+
+* In the changePizzaSizes function (line 450) I moved repeated variables outside of the for loop. In addition, I updated 'querySelectorAll' to 'getElementsByClassName' which is faster.
+* In the updatePositions function (line 509) I moved 'document.body.scrollTop' outside of the for loop.
 
 ### Optimization Tips and Tricks
 * [Optimizing Performance](https://developers.google.com/web/fundamentals/performance/ "web performance")

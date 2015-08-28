@@ -511,9 +511,9 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   // OPTIMIZATION: This for loop is causing TONS of Recalculate Style & Layout when scrolling
-  // Optimized by moving the calculate of 'document.body.scrollTop' outside of the for loop
+  // Optimized by moving the calculation of 'document.body.scrollTop' outside of the for loop
   var items = document.querySelectorAll('.mover');
-  var cachedScrollTop=document.body.scrollTop
+  var cachedScrollTop=document.body.scrollTop;
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin((cachedScrollTop / 1250) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
