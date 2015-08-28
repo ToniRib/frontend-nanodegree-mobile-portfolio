@@ -18,8 +18,8 @@ module.exports = function(grunt) {
         // Minify the javascript file
         uglify: {
             build: {
-                src: 'js/perfmatters.js',
-                dest: 'js/perfmatters.min.js'
+                src: 'src/js/perfmatters.js',
+                dest: 'dist/js/perfmatters.min.js'
             }
         },
 
@@ -28,9 +28,9 @@ module.exports = function(grunt) {
             target: {
                 files: [{
                     expand: true,
-                    cwd: 'css/',
+                    cwd: 'src/css/',
                     src: ['*.css', '!*.min.css'],
-                    dest: 'css/',
+                    dest: 'dist/css/',
                     ext: '.min.css'
                 }]
             }
@@ -41,9 +41,9 @@ module.exports = function(grunt) {
             dynamic: {
                 files: [{
                     expand: true,
-                    cwd: 'img/',
+                    cwd: 'src/img/',
                     src: ['**/*.{png,jpg,gif}'],
-                    dest: 'img/build/'
+                    dest: 'dist/img/'
                 }]
             },
         },
@@ -53,7 +53,7 @@ module.exports = function(grunt) {
             main: {
                 options: {},
                 files: {
-                    'index_production.html': 'index.html'
+                    'dist/index.html': 'src/index.html'
                 }
             }
         },
@@ -61,7 +61,7 @@ module.exports = function(grunt) {
         // Run a clean up function so images don't get recursively optimized
         clean: {
             build: {
-                src: 'img/build/'
+                src: 'dist/img/'
             }
         },
 
