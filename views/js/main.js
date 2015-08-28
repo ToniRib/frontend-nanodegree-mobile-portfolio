@@ -512,7 +512,8 @@ function updatePositions() {
 
   // OPTIMIZATION: This for loop is causing TONS of Recalculate Style & Layout when scrolling
   // Optimized by moving the calculation of 'document.body.scrollTop' outside of the for loop
-  var items = document.querySelectorAll('.mover');
+  // OPTIMIZATION: Changed 'querySelectorAll' to 'getElementsByClassName' which is faster
+  var items = document.getElementsByClassName('mover');
   var cachedScrollTop=document.body.scrollTop;
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin((cachedScrollTop / 1250) + (i % 5));
@@ -534,9 +535,12 @@ window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
-  var cols = 8;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
+  var cols = screen.width / s;
+  var rows = screen.height / 100;
+  console.log('cols: ' + cols);
+  console.log('rows: ' + rows);
+  for (var i = 0; i < cols * rows; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
