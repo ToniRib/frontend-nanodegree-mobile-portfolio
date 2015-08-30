@@ -47,5 +47,6 @@ The goal of this section was to optimize views/pizza.html, by modifying views/js
 ####The following optimizations were provided by Toni Rib:
 
 * In the changePizzaSizes function (line 450) I moved repeated variables outside of the for loop. In addition, I updated 'querySelectorAll' to 'getElementsByClassName' which is faster.
-* In the updatePositions function (line 509) I moved 'document.body.scrollTop' outside of the for loop.
-* Used the screen size (line 537) to calculate the number of background pizzas to create instead of using the static # of 200.
+* In line 481, I moved the pizzaDivs variable outside of the for loop.
+* In the updatePositions function (line 518) I moved 'document.body.scrollTop' outside of the for loop, calculated items.length outside of the for loop, and declared the phase variable outside of the loop as well.
+* Used the screen size (line 543) to calculate the number of background pizzas to create instead of using the static # of 200, declared the elem variable outside of the for loop, and changed querySelector to getElementById which is faster.
