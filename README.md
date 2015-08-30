@@ -4,13 +4,17 @@ For the Udacity Front End Web Developer Nanodegree project 4, Udacity provided a
 
 Note: You can find a live version of this site at [http://tonirib.github.io/frontend-nanodegree-mobile-portfolio/dist/index.html](http://tonirib.github.io/frontend-nanodegree-mobile-portfolio). This site uses the production code created from the Grunt tasks.
 
-### Dependencies
+##### Dependencies
 
 This project requires Grunt and ngrok in order to run the Gruntfile.
 
-### Locations
+##### Locations
 
 All source (dev) code is located in the src directory, while production code generated using Grunt is located in the dist directory.
+
+##### License
+
+All code is provided under the MIT license.
 
 ###Part 1: Optimize PageSpeed Insights score for index.html
 
