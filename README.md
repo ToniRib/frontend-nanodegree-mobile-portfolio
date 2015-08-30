@@ -8,27 +8,33 @@ Note: You can find a live version of this site at [http://tonirib.github.io/fron
 
 This project requires Grunt and ngrok in order to run the Gruntfile.
 
+### Locations
+
+All source (dev) code is located in the src directory, while production code generated using Grunt is located in the dist directory.
+
 ###Part 1: Optimize PageSpeed Insights score for index.html
 
-The goal of this section was to achieve a mobile and desktop score of 90 or greater using [https://developers.google.com/speed/pagespeed/insights/](Google's PageSpeed Insights).
+The goal of this section was to achieve a mobile and desktop score of 90 or greater using [Google's PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/).
 
 ####The following optimizations were provided by Toni Rib:
 
-* Created a Gruntfile.js to optimize images, minify the files, and use ngrok and pagespeed to measure performance
+* Created a Gruntfile.js to optimize images, minify the files, inline CSS into the HTML, and use ngrok and pagespeed to measure performance
 * Changed the HTML link attribute to include a media="print" attribute for the print.css stylesheet in .html files
 * Changed the call to img/profilepic.jpg to be img/build/profilepic.jpg in index.html
-* Minified css files
-* Moved the Google fonts to be non-render blocking by asynchronously loading it at the bottom of the file.
-* Used imagemagick to resize the pizzeria.jpg image since Grunt keeps having an error with this image
-* Updated 'querySelectorAll' to 'getElementsByClassName' which is faster.
+* Moved the Google fonts to be non-render blocking by asynchronously loading it at the bottom of the file
+* Used imagemagick to resize the pizzeria.jpg image since Grunt kept having an error with this image
+* Updated 'querySelectorAll' to 'getElementsByClassName' which is faster
 
 #### Running Grunt to Produce Production Files
+
+This section assumes the user is working on MAC OS X.
 
 1. After cloning the project into a local respository using Git, navigate to the main project location.
 2. If you are only interested in generating the production code, simply run the command 'grunt' to run all optimizations in the Gruntfile. Production code will be saved in the dist directory.
 3. If you also want to check PageSpeed Insight scores using ngrok, perform the following steps:
 	* Open a second tab from the Terminal and navigate to the dist directory. Run the command 'python -m SimpleHTTPServer 8080' to host the site on the local server at port 8080.
 	* Go back to the first tab in the Terminal and run the 'grunt' command. The PageSpeed Insights scores will now be displayed.
+4. To view the pages from the production code, navigate to the dist directory and open index.html in your browser.
 
 ###Part 2: Optimize Frames per Second in pizza.html
 
