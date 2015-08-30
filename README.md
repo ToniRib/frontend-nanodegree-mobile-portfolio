@@ -2,7 +2,7 @@
 
 For the Udacity Front End Web Developer Nanodegree project 4, Udacity provided an online portfolio with specific bugs that needed to be optimized. In particular, the goal was to optimize the critical rendering path to make the main page render as quickly as possible when scrolling by applying the techniques picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
 
-Note: You can find a live version of this site at [http://tonirib.github.io/frontend-nanodegree-mobile-portfolio/dist/index.html](http://tonirib.github.io/frontend-nanodegree-mobile-portfolio). This site uses the production code created from the Grunt tasks.
+Note: You can find a live version of this site at [http://tonirib.github.io/frontend-nanodegree-mobile-portfolio/dist/index.html](http://tonirib.github.io/frontend-nanodegree-mobile-portfolio/dist/index.html). This site uses the production code created from the Grunt tasks.
 
 ##### Dependencies
 
